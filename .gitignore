@@ -1,7 +1,8 @@
 # History files
 .Rhistory
 .Rapp.history
-
+*.Rproj
+*.html
 # Session Data files
 .RData
 
@@ -31,3 +32,4 @@ vignettes/*.pdf
 # Temporary files created by R markdown
 *.utf8.md
 *.knit.md
+.Rproj.user

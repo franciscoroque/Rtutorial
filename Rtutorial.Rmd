@@ -1,0 +1,46 @@
+---
+title: "Rtutorial"
+author: "Francisco Roque"
+date: "23 de janeiro de 2017"
+output: html_document
+---
+
+## Introduction
+
+This is the data description....
+
+```{r, echo=FALSE}
+# load the data
+ourdata <- read.csv("data/Tutorial_Boats.csv", header = TRUE, sep=";")
+
+firstrows <- head(ourdata,5)
+firstrows2 <- ourdata[1:5,c(1,4,10,11)]
+
+knitr::kable(firstrows2)
+```
+
+Let's now see the correlation of our columns:
+
+```{r, echo=FALSE}
+colnames(firstrows2) <- substring(colnames(firstrows2), first = 1, last = 4)
+mycorrelationnumbers=cor(firstrows2)
+knitr::kable(mycorrelationnumbers)
+```
+
+##Apply
+
+```{r, echo=FALSE}
+tmp = t(apply(firstrows2,1,summary))
+knitr::kable(tmp)
+```
+
+Apply my own function
+```{r, echo=FALSE}
+
+myfunction <- function(inputvar){
+sum(inputvar[1:2])  
+}
+
+tmp = t(apply(firstrows2,2,myfunction))
+knitr::kable(tmp)
+```
